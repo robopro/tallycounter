@@ -14,6 +14,7 @@
 		<meta property="og:type" content="website">
 		<meta name="twitter:card" content="summary_large_image">
 		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 		<link rel="stylesheet" type="text/css" href="counterstyle.css">
 	</head> 
 	<body>
@@ -25,10 +26,20 @@
 				Source on Github
 			</a>
 		</div>
+		
+		<div id="success">
+			<strong>Success!</strong>&nbsp;
+			Copied&nbsp;
+			<div id="copy-count">0</div>
+			&nbsp;to the clipboard.
+		</div>
 
-		<div id="container">		
-			<div id="counter">
-				0
+		<div id="container">
+			<div class="counter-container">
+				<div id="counter">
+					0
+				</div>
+				<a href="#"><i id="copy-button" class="far fa-clipboard"></i></a>
 			</div>
 			
 			<a id="reset-button" href="#">
@@ -38,7 +49,10 @@
 		
 		<div class="footer">
 			<div>
-				<strong>Made by&nbsp;<a href="https://github.com/robopro">robopro</a></strong>
+				<strong>
+					Made by
+					<a href="https://github.com/robopro">robopro</a>
+				</strong>
 			</div>
 			<div class="attributions">
 				<a href="https://www.flickr.com/photos/boyce-d/46530265585/">Images</a> courtesy of <a href="https://www.flickr.com/photos/boyce-d/">Boyce Dupree</a> - <a href="https://creativecommons.org/licenses/by-nd/2.0/">(CC BY-ND 2.0)</a>
