@@ -9,7 +9,6 @@ container.addEventListener('mousedown', (e) => {
 	if (e.detail > 1)
 		e.preventDefault();
 	counter.innerText = parseInt(counter.innerText) + 1;
-	copy_count.innerText = counter.innerText;
 });
 
 reset.addEventListener("click", () => {
@@ -17,8 +16,9 @@ reset.addEventListener("click", () => {
 });
 
 copy.addEventListener("click", () => {
+	copy_count.innerText = counter.innerText;
 	let range = document.createRange();
-	range.selectNode(counter);
+	range.selectNode(copy_count);
 	window.getSelection().removeAllRanges();
 	window.getSelection().addRange(range);
 	document.execCommand("copy");
