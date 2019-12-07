@@ -59,16 +59,25 @@ body {
 	background-color: #000;
 }
 
-#footer {
+.footer {
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: 50px;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	background-color: #DDD;
+}
+
+.attributions {
+	color: #AAA;
+}
+
+.attributions a {
+	color: #AAA;
 }
 
 @media only screen and (min-width: 992px) {
