@@ -42,17 +42,13 @@ body {
 }
 
 #reset-button {
-	transition: background 0.3s ease;
+	transition: background 0.15s ease;
 	text-decoration: none;
 	border-radius: 4px;
 	margin: 10px;
 	padding: 8px 24px;
-	background-color: #AAA;
+	background-color: #333;
 	color: #FFF;
-}
-
-#reset-button:hover {
-	background-color: #999;
 }
 
 #reset-button:active {
@@ -74,6 +70,7 @@ body {
 
 .attributions {
 	color: #AAA;
+	font-size: 0.5em
 }
 
 .attributions a {
@@ -83,5 +80,17 @@ body {
 @media only screen and (min-width: 992px) {
 	#counter {
 		font-size: 4vw;
+	}
+	
+	#reset-button {
+		background-color: #AAA;
+	}
+
+	#reset-button:hover {
+		background-color: #333;
+	}
+
+	#reset-button:active {
+		background-color: #000;
 	}
 }
