@@ -1,28 +1,28 @@
 const counter = document.getElementById("counter");
 const container = document.getElementById("container");
-const reset = document.getElementById("reset-button");
-const copy = document.getElementById("copy-button");
+const reset_button = document.getElementById("reset-button");
+const copy_button = document.getElementById("copy-button");
 const success = document.getElementById("success");
 const copy_count = document.getElementById("copy-count");
 		
-container.addEventListener('mousedown', (e) => {
-	if (e.detail > 1)
-		e.preventDefault();
+container.addEventListener('click', (e) => {
 	counter.innerText = parseInt(counter.innerText) + 1;
 });
 
-reset.addEventListener("click", () => {
+reset_button.addEventListener("click", (e) => {
+	e.stopPropagation();
 	counter.innerText = 0;
 });
 
-copy.addEventListener("click", () => {
+copy_button.addEventListener("click", (e) => {
+	e.stopPropagation();
+	
 	copy_count.innerText = counter.innerText;
-	let range = document.createRange();
-	range.selectNode(copy_count);
-	window.getSelection().removeAllRanges();
-	window.getSelection().addRange(range);
+	
+	window.getSelection().selectAllChildren(counter);
 	document.execCommand("copy");
 	window.getSelection().removeAllRanges();
+	
 	success.classList.add("visible")
 	setTimeout(() => {
 		success.classList.remove("visible");

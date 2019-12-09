@@ -15,7 +15,7 @@ body {
 	padding: 0 10px;
 }
 
-.navbar a {
+.nav-link {
 	display: flex;
 	align-items: center;
 	height: 100%;
@@ -24,7 +24,7 @@ body {
 	color: #FFF;
 }
 
-.navbar a:hover {
+.nav-link:hover {
 	background-color: #333;
 }
 
@@ -47,6 +47,7 @@ body {
 }
 
 #container {
+	user-select: none;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -59,15 +60,15 @@ body {
 	align-items: center;
 }
 
-.counter-container a {
-	transition: color 0.15s ease;
+#copy-button {
+	transition: color 0.3s ease;
 	text-decoration: none;
 	padding: 0 10px;
 	font-size: 1.5em;
 	color: #333;
 }
 
-.counter-container a:active {
+#copy-button:active {
 	color: #000;
 }
 
@@ -77,7 +78,7 @@ body {
 }
 
 #reset-button {
-	transition: background 0.15s ease;
+	transition: background 0.3s ease;
 	text-decoration: none;
 	border-radius: 4px;
 	margin: 10px;
@@ -117,21 +118,16 @@ body {
 		font-size: 4vw;
 	}
 	
-	.counter-container a {
-		font-size: 1vw;
+	#copy-button {
 		color: #AAA;
 	}
 
-	.counter-container a:hover {
+	#copy-button:hover {
 		color: #333;
 	}
 
-	.counter-container a:active {
+	#copy-button:active {
 		color: #000;
-	}
-	
-	#copy-button {
-		font-size: 1vw;
 	}
 	
 	#reset-button {
