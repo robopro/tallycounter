@@ -7,7 +7,7 @@ const base_url = "https://robopro.github.io/tallycounter/?";
 
 // SET STARTING NUMBER FROM URL
 document.addEventListener('DOMContentLoaded', () => {
-	const found = window.location.href.match(/\?\d+\D|\?\d+/g)
+	const found = window.location.href.match(/\?\d+\D|\?\d+/g)[0]
 	if (found) counter.innerText = found.replace(/\D/g, '');
 });
 
