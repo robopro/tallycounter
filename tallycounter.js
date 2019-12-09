@@ -1,38 +1,32 @@
 const counter = document.getElementById("counter");
 const container = document.getElementById("container");
-const reset_button = document.getElementById("reset-button");
-const copy_button = document.getElementById("copy-button");
-const dark_slider = document.getElementById("dark-check");
-const base_url = "https://robopro.github.io/tallycounter/?";
+const resetButton = document.getElementById("reset-button");
+const copyButton = document.getElementById("copy-button");
+const darkSlider = document.getElementById("dark-check");
+const copyText = document.getElementById("copy-text");
+const baseUrl = "https://robopro.github.io/tallycounter/?";
 
 // SET STARTING NUMBER FROM URL
 document.addEventListener('DOMContentLoaded', () => {
-	const found = window.location.href.match(/\?\d+\D|\?\d+/g)[0]
-	if (found) counter.innerText = found.replace(/\D/g, '');
+	const found = window.location.href.match(/\?\d+\D|\?\d+/g)
+	if (found) counter.innerText = found[0].replace(/\D/g, '');
 });
 
-const updateURL = (num) => {
-	window.location.href = base_url + num;
-}
-
+// INCREASE COUNTER
 container.addEventListener('click', (e) => {
 	counter.innerText = parseInt(counter.innerText) + 1;
-	updateURL(counter.innerText);
 });
 
-reset_button.addEventListener("click", (e) => {
+// RESET COUNTER
+resetButton.addEventListener("click", (e) => {
 	e.stopPropagation();
 	counter.innerText = 0;
-	updateURL(counter.innerText);
 });
 
-// COPY NUMBER AND SUCCESS FLASH
-copy_button.addEventListener("click", (e) => {
-	e.stopPropagation();
-	
-	document.getElementById("copy-count").innerText = counter.innerText;
-	
-	window.getSelection().selectAllChildren(counter);
+// COPY TO CLIPBOARD
+const copyToClipboard = () => {
+	document.getElementById("clipboard").innerText = copyText.innerText;	
+	window.getSelection().selectAllChildren(copyText);
 	document.execCommand("copy");
 	window.getSelection().removeAllRanges();
 	
@@ -41,6 +35,14 @@ copy_button.addEventListener("click", (e) => {
 	setTimeout(() => {
 		success.classList.remove("visible");
 	}, 2000);
+}
+
+// COPY NUMBER AND SUCCESS FLASH
+copyButton.addEventListener("click", (e) => {
+	e.stopPropagation();
+	
+	copyText.innerText = counter.innerText;
+	copyToClipboard();
 });
 
 // DARK MODE
@@ -52,25 +54,25 @@ const removeDark = (element) => {
 	element.classList.remove("dark")
 }
 
-dark_slider.addEventListener("change", (e) => {
-	const social_sharing = document.querySelector(".social-sharing-links")
+darkSlider.addEventListener("change", (e) => {
+	const socialSharing = document.querySelector(".social-sharing-links")
 	const footer = document.querySelector(".footer");
 
 	if (e.target.checked) {
 		addDark(container);
-		addDark(copy_button);
+		addDark(copyButton);
 		addDark(footer);
 	} else {
 		removeDark(container);
-		removeDark(copy_button);
+		removeDark(copyButton);
 		removeDark(footer);	
 	}
 });
 
 // SOCIAL MEDIA SHARING
-const popUpWindow = (share_url) => {
+const popUpWindow = (shareUrl) => {
 	window.open(
-		share_url + base_url + counter.innerText,
+		shareUrl + baseUrl + counter.innerText,
 		"pop",
 		"resizable,scrollbars=yes"
 	);
@@ -82,7 +84,7 @@ document.getElementById("fb-button").addEventListener("click", (e) => {
 	popUpWindow("https://www.facebook.com/sharer/sharer.php?u=");
 });
 
-document.getElementById("twitter-button").addEventListener("click", (e) => {
+document.getElementById("twit-button").addEventListener("click", (e) => {
 	e.stopPropagation();
 	
 	popUpWindow("https://twitter.com/intent/tweet?url=");
@@ -92,4 +94,11 @@ document.getElementById("linkedin-button").addEventListener("click", (e) => {
 	e.stopPropagation();
 	
 	popUpWindow("https://www.linkedin.com/shareArticle?mini=true&url=");
+});
+
+document.getElementById("url-button").addEventListener("click", (e) => {
+	e.stopPropagation();
+	
+	copyText.innerText = baseUrl + counter.innerText;
+	copyToClipboard();
 });
