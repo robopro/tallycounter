@@ -4,7 +4,13 @@ const reset_button = document.getElementById("reset-button");
 const copy_button = document.getElementById("copy-button");
 const dark_slider = document.getElementById("dark-check");
 const social_sharing = document.querySelector(".social-sharing-links");
-	
+
+document.addEventListener('DOMContentLoaded', () => {
+	console.log("TEST");
+	const num = window.location.href.split('?')[1]
+	if (num) counter.innerText = num;
+});
+
 container.addEventListener('click', (e) => {
 	counter.innerText = parseInt(counter.innerText) + 1;
 });
