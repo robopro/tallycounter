@@ -21,27 +21,7 @@
 	</head> 
 	<body>
 		<!-- SOCIAL MEDIA SHARING SCRIPTS -->
-		<div id="fb-root"></div>
-		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
-		<script>
-			window.twttr = (function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
-				if (d.getElementById(id)) return t;
-				js = d.createElement(s);
-				js.id = id;
-				js.src = "https://platform.twitter.com/widgets.js";
-				fjs.parentNode.insertBefore(js, fjs);
-
-				t._e = [];
-				t.ready = function(f) {
-					t._e.push(f);
-				};
-
-				return t;
-			}(document, "script", "twitter-wjs"));
-		</script>
-		<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-
+				
 		<!-- NAVBAR -->
 		<div class="navbar">
 			<div class="nav-title">
@@ -83,11 +63,15 @@
 			</div>
 			
 			<div class="social-sharing-links">
-				<div class="fb-share-button" data-href="https://robopro.github.io/tallycounter/" data-layout="button" data-size="small">
-					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frobopro.github.io%2Ftallycounter%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+				<div id="fb-button">
+					<i class="fab fa-facebook-f"></i>
 				</div>
-				<a class="twitter-share-button" href="https://robopro.github.io/tallycounter/">Tweet</a>
-				<script type="IN/Share" data-url="https://robopro.github.io/tallycounter/"></script>
+				<div id="twitter-button">
+					<i class="fab fa-twitter"></i>
+				</div>
+				<div id="linkedin-button">
+					<i class="fab fa-linkedin-in"></i>
+				</div>
 			</div>
 		</div>
 		

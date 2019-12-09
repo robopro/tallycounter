@@ -3,25 +3,27 @@ const container = document.getElementById("container");
 const reset_button = document.getElementById("reset-button");
 const copy_button = document.getElementById("copy-button");
 const dark_slider = document.getElementById("dark-check");
-const social_sharing = document.querySelector(".social-sharing-links");
+const base_url = "https://robopro.github.io/tallycounter/?";
 
+// SET STARTING NUMBER FROM URL
 document.addEventListener('DOMContentLoaded', () => {
-	console.log("TEST");
-	const num = window.location.href.split('?')[1]
-	if (num) counter.innerText = num;
+	const found = window.location.href.match(/\?\d+\D/g)
+	if (found) counter.innerText = found.replace(/\D/g, '');
 });
+
+const updateURL = (num) => {
+	window.location.href = base_url + num;
+}
 
 container.addEventListener('click', (e) => {
 	counter.innerText = parseInt(counter.innerText) + 1;
+	updateURL(counter.innerText);
 });
 
 reset_button.addEventListener("click", (e) => {
 	e.stopPropagation();
 	counter.innerText = 0;
-});
-
-social_sharing.addEventListener("click", (e) => {
-	e.stopPropagation();
+	updateURL(counter.innerText);
 });
 
 // COPY NUMBER AND SUCCESS FLASH
@@ -63,4 +65,31 @@ dark_slider.addEventListener("change", (e) => {
 		removeDark(copy_button);
 		removeDark(footer);	
 	}
+});
+
+// SOCIAL MEDIA SHARING
+const popUpWindow = (share_url) => {
+	window.open(
+		share_url + base_url + counter.innerText,
+		"pop",
+		"resizable,scrollbars=yes"
+	);
+}
+
+document.getElementById("fb-button").addEventListener("click", (e) => {
+	e.stopPropagation();
+	
+	popUpWindow("https://www.facebook.com/sharer/sharer.php?u=");
+});
+
+document.getElementById("twitter-button").addEventListener("click", (e) => {
+	e.stopPropagation();
+	
+	popUpWindow("https://twitter.com/intent/tweet?url=");
+});
+
+document.getElementById("linkedin-button").addEventListener("click", (e) => {
+	e.stopPropagation();
+	
+	popUpWindow("https://www.linkedin.com/shareArticle?mini=true&url=");
 });
