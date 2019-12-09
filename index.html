@@ -6,27 +6,60 @@
 		
 		<title>Online Tally Counter by robopro</title>
 		<meta name="description" content="The perfect spot for all your counting and tallying needs!">
-		
 		<meta property="og:title" content="Online Tally Counter by robopro">
 		<meta property="og:description" content="The perfect spot for all your counting and tallying needs!">
-		<meta property="og:image" content="https://robopro.github.io/tallycounter/tally_counter.jpg">
 		<meta property="og:url" content="https://robopro.github.io/tallycounter/">
+		<meta property="og:image" content="https://robopro.github.io/tallycounter/tally_counter.jpg">
+		<meta property="og:site_name" content="Online Tally Counter by robopro">
 		<meta property="og:type" content="website">
 		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:image:alt" content="Online Tally Counter">
 		
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 		<link rel="stylesheet" type="text/css" href="counterstyle.css">
+		<link rel="stylesheet" type="text/css" href="counterstyle_dark.css">
 	</head> 
 	<body>
+		<!-- SOCIAL MEDIA SHARING SCRIPTS -->
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
+		<script>
+			window.twttr = (function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
+				if (d.getElementById(id)) return t;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "https://platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+
+				t._e = [];
+				t.ready = function(f) {
+					t._e.push(f);
+				};
+
+				return t;
+			}(document, "script", "twitter-wjs"));
+		</script>
+		<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+		<!-- NAVBAR -->
 		<div class="navbar">
 			<div class="nav-title">
 				Online Tally Counter
+			</div>
+			<div class="dark-mode">
+				Dark Mode
+				<label class="dark-switch">
+					<input id="dark-check" type="checkbox">
+					<span class="slider"></span>
+				</label>
 			</div>
 			<a class="nav-link" href="https://github.com/robopro/tallycounter">
 				Source on Github
 			</a>
 		</div>
-		
+	
+		<!-- ALERT FLASHES -->
 		<div id="success">
 			<strong>Success!</strong>&nbsp;
 			Copied&nbsp;
@@ -34,6 +67,7 @@
 			&nbsp;to the clipboard.
 		</div>
 
+		<!-- MAIN BODY -->
 		<div id="container">
 			<div class="counter-container">
 				<div id="counter">
@@ -47,8 +81,17 @@
 			<div id="reset-button">
 				RESET
 			</div>
+			
+			<div class="social-sharing-links">
+				<div class="fb-share-button" data-href="https://robopro.github.io/tallycounter/" data-layout="button" data-size="small">
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frobopro.github.io%2Ftallycounter%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+				</div>
+				<a class="twitter-share-button" href="https://robopro.github.io/tallycounter/">Tweet</a>
+				<script type="IN/Share" data-url="https://robopro.github.io/tallycounter/"></script>
+			</div>
 		</div>
 		
+		<!-- FOOTER -->
 		<div class="footer">
 			<div>
 				<strong>

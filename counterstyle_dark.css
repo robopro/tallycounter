@@ -1,0 +1,27 @@
+#container.dark {
+	background-color: #555;
+	color: #FFF;
+}
+
+#copy-button.dark {
+	color: #fff;
+}
+
+#copy-button.dark:active {
+	color: #000;
+}
+
+.footer.dark {
+	background-color: #333;
+	color: #FFF;
+}
+
+.footer.dark a {
+	color: #FFF;
+}
+
+@media only screen and (min-width: 992px) {
+	#copy-button.dark:hover {
+		color: #333;
+	}
+}
