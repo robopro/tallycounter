@@ -3,7 +3,7 @@ const container = document.getElementById("container");
 const reset_button = document.getElementById("reset-button");
 const copy_button = document.getElementById("copy-button");
 const dark_slider = document.getElementById("dark-check");
-const social_sharing = document.getElementById("social-sharing-links");
+const social_sharing = document.querySelector(".social-sharing-links");
 	
 container.addEventListener('click', (e) => {
 	counter.innerText = parseInt(counter.innerText) + 1;
