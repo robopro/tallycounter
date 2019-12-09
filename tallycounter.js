@@ -3,7 +3,7 @@ const container = document.getElementById("container");
 const resetButton = document.getElementById("reset-button");
 const copyButton = document.getElementById("copy-button");
 const darkSlider = document.getElementById("dark-check");
-const copyText = document.getElementById("copy-text");
+const clipboard = document.getElementById("clipboard");
 const baseUrl = "https://robopro.github.io/tallycounter/?";
 
 // SET STARTING NUMBER FROM URL
@@ -25,8 +25,7 @@ resetButton.addEventListener("click", (e) => {
 
 // COPY TO CLIPBOARD
 const copyToClipboard = () => {
-	document.getElementById("clipboard").innerText = copyText.innerText;	
-	window.getSelection().selectAllChildren(copyText);
+	window.getSelection().selectAllChildren(clipboard);
 	document.execCommand("copy");
 	window.getSelection().removeAllRanges();
 	
@@ -41,7 +40,7 @@ const copyToClipboard = () => {
 copyButton.addEventListener("click", (e) => {
 	e.stopPropagation();
 	
-	copyText.innerText = counter.innerText;
+	clipboard.innerText = counter.innerText;
 	copyToClipboard();
 });
 
@@ -99,6 +98,6 @@ document.getElementById("linkedin-button").addEventListener("click", (e) => {
 document.getElementById("url-button").addEventListener("click", (e) => {
 	e.stopPropagation();
 	
-	copyText.innerText = baseUrl + counter.innerText;
+	clipboard.innerText = baseUrl + counter.innerText;
 	copyToClipboard();
 });
