@@ -116,11 +116,15 @@ input:checked + .slider:before {
 	cursor: pointer;
 }
 
-#twitter-button {
+#twit-button {
 	cursor: pointer;
 }
 
 #linkedin-button {
+	cursor: pointer;
+}
+
+#url-button {
 	cursor: pointer;
 }
 
